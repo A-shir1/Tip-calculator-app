@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <title>Tip calculator app</title>
+
+</head>
+<body>
+  <h1>splitter</h1>
+  <main id = "TipCalc">
+    <div class="left">
+      <div class="billDiv">
+        <h2 class="bill">Bill</h2>
+        <i id="rupeeIcon" class="fas fa-rupee-sign"></i>
+        <input name="BillTextbox" maxlength="7" placeholder="0" type="text" class="textbox" required>
+      </div>
+
+      <div class="percSelect">
+        <h2 class="selectTip">Select tip %</h2>
+        
+        <div class="buttWrapper">
+          <button class="buttLabel">5%</button>
+          <button class="buttLabel">10%</button>
+          <button class="buttLabel">15%</button>
+          <button class="buttLabel">25%</button>
+          <button class="buttLabel">50%</button>
+          <input name="custom" placeholder="Custom" id="percText" type="text">
+        </div>
+
+      </div>
+
+      <div class="NOPdiv">
+        <h2 class="NOP">Number of People</h2>
+        <i id ="userIcon" class="fas fa-user"></i>
+        <input name="NOPtextbox" maxlength="2" placeholder="0" type="text" class="textbox" required>
+      </div>
+    </div>
+    
+    <div class="right">
+      <div class="rightWrapper">
+        <div class="results">
+          <div class="tipAmount">
+            <p class="tip">tip amount <span class="perPerson">/ person</span></p>
+            <p class="tipNumDiv"> <i class="fas fa-rupee-sign largeRupee"></i><span class="tipNum">0.00</span></p>
+          </div>
+
+          <div class="totalAmount">
+            <p class="total">total amount <span class="perPerson">/ person</span></p>
+            <p class="totalNumDiv"> <i class="fas fa-rupee-sign largeRupee"></i><span class="totalNum">0.00</span></p>
+          </div>
+          <div class="total">
+
+          </div>
+        </div>
+      </div>
+      <button class="resetButt">Reset</button>
+    </div>
+  </main>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Mohammad Ashir</a>.
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

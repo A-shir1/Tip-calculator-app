@@ -1,0 +1,255 @@
+:root{
+    --strong-cyan: hsl(172, 67%, 45%);
+    --vd-cyan: hsl(183, 100%, 15%);
+    --darkgrayish-cyan1: hsl(186, 14%, 43%);
+    --darkgrayish-cyan2: hsl(184, 14%, 56%);
+    --lightgrayish-cyan1: hsl(185, 41%, 84%);
+    --lightgrayish-cyan2: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+}
+
+body{
+    font-size: 24px;
+    font-family: 'Space Mono', monospace;
+    background-color: var(--lightgrayish-cyan1);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+/* DRY AREA */
+
+input, textarea, button {
+    font-family: inherit;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+input[type = "text"]{
+    font-weight: bold;
+    border: none;
+}
+
+input[type = "text"]:focus{
+    outline: none;
+    border: 2px solid var(--strong-cyan);
+}
+
+#rupeeIcon, #userIcon{
+    font-weight: 400;
+    position: absolute;
+    color: var(--darkgrayish-cyan2);
+    font-size: 0.8rem;
+}
+
+.textbox{
+    width: 90%;
+    height: 1.7rem;
+    border-radius: 0.3rem;
+    text-align: right;
+    color: var(--vd-cyan);
+    background-color: var(--lightgrayish-cyan2);
+    font-size: 1.2rem;
+}
+
+
+h1{
+    width: 6rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4rem;
+    font-weight: bold;
+    word-wrap: break-word;
+    color: var(--vd-cyan);
+    margin-bottom: 2rem;
+}
+
+#TipCalc{
+    width: 63%;
+    height: 60%;
+    background-color: var(--white);
+    border-radius: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.left, .right{
+    width: 45%;
+    height: 88%;
+    border-radius: 0.7rem;
+}
+
+#TipCalc .left{
+    /* background-color: red; */
+    color: var(--vd-cyan);
+    position: relative;
+
+}
+
+h2{
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-bottom: 2px;
+}
+
+
+#rupeeIcon{
+    top: 2.5rem;
+    left: 1rem;
+}
+
+#TipCalc .right{
+    background-color: var(--vd-cyan);
+}
+
+
+.percSelect{
+    margin: 2.5rem 0;
+}
+
+.buttWrapper{
+    height: 5.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttLabel{
+    border: none;
+    background-color: var(--vd-cyan);
+    width: 6rem;
+    height: 2.2rem;
+    color: var(--white);
+    font-size: 1.1rem;
+}
+
+.buttLabel:focus{
+    background-color: var(--strong-cyan);
+    color: var(--vd-cyan);
+}
+
+#percText{
+    width: 5.8rem;
+    height: 2rem;
+    text-align: center;
+    border: none;
+    box-sizing: border-box;
+    background-color: var(--lightgrayish-cyan2);
+}
+
+#percText:focus{
+    border: 2px solid var(--strong-cyan);
+}
+
+.buttLabel, #percText{
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#userIcon{
+    bottom: 2rem;
+    left: 1rem;
+}
+
+    /* RIGHT */
+
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.results, .tipAmount, .totalAmount{
+    display: flex;
+}
+
+.results{
+    flex-direction: column;
+}
+
+.tipAmount, .totalAmount{
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bold;
+    height: 6rem;
+}
+
+.tipAmount .tip, .totalAmount .total{
+    text-transform: capitalize;
+    color: var(--white);
+}
+
+.tip, .total{
+    font-size: 0.9rem;
+}
+
+.tip{
+    width: 6rem;
+}
+
+.total{
+    width: 6.7rem;
+}
+
+.perPerson{
+    font-size: 0.7rem;
+    color: var(--darkgrayish-cyan2);
+}
+
+.largeRupee{
+    font-size: 1.5rem;
+}
+
+.button{
+    float: bottom;
+}
+
+.tipAmount .tipNumDiv, .totalAmount .totalNumDiv{
+    color: var(--strong-cyan);
+    font-size: 2rem;
+}
+
+.tipNum, .totalNum{
+    color: inherit;
+    display: inline;
+}
+
+.resetButt{
+    width: 82%;
+    margin: auto;
+    height: 2.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: var(--strong-cyan);
+    color: var(--vd-cyan);
+    border: none;
+    border-radius: 5px;
+    transition: 0.2s;
+
+}
+
+
+
+.resetButt:hover{
+    background-color: var(--vd-cyan);
+    border: 2px solid var(--strong-cyan);
+    color: var(--strong-cyan);
+}
+
+.attribution { 
+    margin-top: 1rem;
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a { 
+    color: var(--vd-cyan); 
+}
