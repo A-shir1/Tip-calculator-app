@@ -222,8 +222,12 @@ h2{
     display: inline;
 }
 
-.resetButt{
-    width: 82%;
+.actionButtons{
+    text-align: center;
+}
+
+.resetButt, .calcButt{
+    width: 30%;
     margin: auto;
     height: 2.5rem;
     text-transform: uppercase;
@@ -233,12 +237,11 @@ h2{
     border: none;
     border-radius: 5px;
     transition: 0.2s;
-
 }
 
 
 
-.resetButt:hover{
+.resetButt:hover, .calcButt:hover{
     background-color: var(--vd-cyan);
     border: 2px solid var(--strong-cyan);
     color: var(--strong-cyan);

@@ -1,54 +1,82 @@
-let textBox = document.getElementsByClassName("textbox");
-let percButt = document.getElementsByClassName("buttLabel");
-let percText = document.getElementById("percText");
-let tipNum = document.getElementsByClassName("tipNum");
-let totalNum = document.getElementsByClassName("totalNum");
-let resetButt = document.getElementsByClassName("restButt");
+let textBox = document.querySelectorAll(".textbox");
+let percButt = document.querySelectorAll(".buttLabel");
+let percText = document.querySelector("#percText");
+let tipNum = document.querySelector(".tipNum");
+let totalNum = document.querySelector(".totalNum");
+let calcButt = document.querySelector(".calcButt");
+let resetButt = document.querySelector(".resetButt");
 
-let percentage = 0, bill = 0, nop = 0, totalAmount, tipAmount;
+let bill = 0, nop = 0, percentage = 0, totalAmountPerP = 0, tipAmountPerP = 0, total = 0, tipTotal = 0;
+
+        // CALCULATE BUTTON FUNCTIONS
+
+const calculate = () => {
+    tipTotal = bill * percentage;
+    tipAmountPerP = tipTotal / nop;
+    total = bill + tipTotal;
+    totalAmountPerP = total / nop; 
+}
+
+const update = (tipAmountPerP, totalAmountPerP) =>{
+    tipNum.innerText = `${tipAmountPerP.toFixed(2)}`;
+    totalNum.innerHTML = `${totalAmountPerP.toFixed(2)}`;
+}
+
+        // RESET BUTTON FUNCTIONS 
+
+
+
 
 for (let i = 0; i < percButt.length; i++){
-    percButt[i].addEventListener("click", function(){
-        percButt[i].classList.add("clicked");
-    
+    percButt[i].addEventListener("click", () => {
         percText.value = '';
 
-        if (i == 0)
+        if (i === 0)
             percentage = 0.05;
-        else if (i == 1)
+        else if (i === 1)
             percentage = 0.10;
-        else if (i == 2)
+        else if (i === 2)
             percentage = 0.15;
-        else if (i == 3)
+        else if (i === 3)
             percentage = 0.25;
-        else if (i == 4)
+        else if (i === 1)
             percentage = 0.50;
-        
     });
-    update();
 }
 
 
-percText.addEventListener('input', function(){
-    percentage = parseInt(this.value);
-    update();
+percText.addEventListener("input", () => {
+    percentage = parseFloat(percText.value / 100);
 });
 
 for (let i = 0; i < textBox.length; i++){
-    textBox[i].addEventListener('input', function(){
-        if(i == 0)
-            bill = textBox[i].value;
-        else if(i == 1)
-            nop = textBox[i].value;
+    textBox[i].addEventListener("input", () => {
+        if (i === 0)
+            bill = parseFloat(textBox[i].value);
+        else if (i === 1)
+            nop = parseFloat(textBox[i].value);
     });
-    update();
-} 
 
-
-function update() {
-	tipAmount = (parseFloat(bill) * percentage) / parseInt(nop);
-	tipNum[0].innerText = tipAmount.toFixed(2);
-
-	totalAmount = (parseFloat(bill) + parseFloat(bill) * percentage) / parseInt(nop);
-	totalNum[0].innerText = totalAmount.toFixed(2);
 }
+
+calcButt.addEventListener("click", () => {
+    calculate();
+    update(tipAmountPerP, totalAmountPerP);
+});
+
+resetButt.addEventListener("click", () => {
+    for (let tb of textBox)
+        tb.value = '';
+    percText.value = '';
+
+    bill = 0;
+    nop = 0;
+    percentage = 0;
+    totalAmountPerP = 0;
+    tipAmountPerP = 0;
+    total = 0;
+    tipTotal = 0;
+
+    tipNum.innerHTML = '0.00';
+    totalNum.innerHTML = '0.00';
+});
