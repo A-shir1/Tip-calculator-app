@@ -1,5 +1,5 @@
 let textBox = document.querySelectorAll(".textbox");
-let percButt = document.querySelectorAll(".buttLabel");
+let percButt = document.querySelectorAll("input[name='percentage']");
 let percText = document.querySelector("#percText");
 let tipNum = document.querySelector(".tipNum");
 let totalNum = document.querySelector(".totalNum");
@@ -7,6 +7,9 @@ let calcButt = document.querySelector(".calcButt");
 let resetButt = document.querySelector(".resetButt");
 
 let bill = 0, nop = 0, percentage = 0, totalAmountPerP = 0, tipAmountPerP = 0, total = 0, tipTotal = 0;
+
+calcButt.disabled = true;
+resetButt.disabled = true;
 
         // CALCULATE BUTTON FUNCTIONS
 
@@ -22,32 +25,53 @@ const update = (tipAmountPerP, totalAmountPerP) =>{
     totalNum.innerHTML = `${totalAmountPerP.toFixed(2)}`;
 }
 
-        // RESET BUTTON FUNCTIONS 
+        // RESET BUTTON FUNCTIONS   
 
+const resetRadioButt = () => {
+    for (let pb of percButt)
+        pb.checked = false;
+}
 
+const resetTB = () => {
+    for (let tb of textBox)
+        tb.value = '';
+    percText.value = '';
+}
 
+const resetValue = () => {
+    bill = 0;
+    nop = 0;
+    percentage = 0;
+    totalAmountPerP = 0;
+    tipAmountPerP = 0;
+    total = 0;
+    tipTotal = 0;
+}
 
-for (let i = 0; i < percButt.length; i++){
-    percButt[i].addEventListener("click", () => {
-        percText.value = '';
+const resetPage = () => {
+    tipNum.innerHTML = '0.00';
+    totalNum.innerHTML = '0.00';
+}
 
-        if (i === 0)
-            percentage = 0.05;
-        else if (i === 1)
-            percentage = 0.10;
-        else if (i === 2)
-            percentage = 0.15;
-        else if (i === 3)
-            percentage = 0.25;
-        else if (i === 1)
-            percentage = 0.50;
-    });
+const checkInputs = () => {
+    if (bill > 0 && nop > 0 && percentage > 0){
+        calcButt.disabled = false;
+        resetButt.disabled = false;
+    }
 }
 
 
+for (let percValue of percButt) {
+    percValue.onchange = function() {
+        percentage = parseFloat(percValue.value);
+    }
+}
+
 percText.addEventListener("input", () => {
     percentage = parseFloat(percText.value / 100);
+    resetRadioButt()
 });
+
 
 for (let i = 0; i < textBox.length; i++){
     textBox[i].addEventListener("input", () => {
@@ -65,18 +89,8 @@ calcButt.addEventListener("click", () => {
 });
 
 resetButt.addEventListener("click", () => {
-    for (let tb of textBox)
-        tb.value = '';
-    percText.value = '';
-
-    bill = 0;
-    nop = 0;
-    percentage = 0;
-    totalAmountPerP = 0;
-    tipAmountPerP = 0;
-    total = 0;
-    tipTotal = 0;
-
-    tipNum.innerHTML = '0.00';
-    totalNum.innerHTML = '0.00';
+    resetTB();
+    resetRadioButt();
+    resetValue();
+    resetPage();
 });
