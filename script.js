@@ -8,8 +8,6 @@ let resetButt = document.querySelector(".resetButt");
 
 let bill = 0, nop = 0, percentage = 0, totalAmountPerP = 0, tipAmountPerP = 0, total = 0, tipTotal = 0;
 
-calcButt.disabled = true;
-resetButt.disabled = true;
 
         // CALCULATE BUTTON FUNCTIONS
 
@@ -80,7 +78,6 @@ for (let i = 0; i < textBox.length; i++){
         else if (i === 1)
             nop = parseFloat(textBox[i].value);
     });
-
 }
 
 calcButt.addEventListener("click", () => {
