@@ -30,25 +30,29 @@ button:hover{
     cursor: pointer;
 }
 
-input[type = "text"]{
+.textbox, #percText{
     font-weight: bold;
     border: none;
 }
 
-input[type = "text"]:focus{
+.textbox:focus, #percText:focus{
     outline: none;
     border: 2px solid var(--strong-cyan);
 }
 
 #rupeeIcon, #userIcon{
     font-weight: 400;
-    position: absolute;
+    position: relative;
     color: var(--darkgrayish-cyan2);
     font-size: 0.8rem;
 }
 
-.textbox{
+.billDiv, .NOPdiv{
     width: 90%;
+}
+
+.textbox{
+    width: 100%;
     height: 1.7rem;
     border-radius: 0.3rem;
     text-align: right;
@@ -58,7 +62,16 @@ input[type = "text"]:focus{
 }
 
 .tbError{
-    border: 2px solid var(--red);
+    border: 2px solid #FF2400;
+}
+
+.hide{
+    display: none;
+}
+
+.errorMsg{
+    float: right;
+    color: #FF2400;
 }
 
 h1{
@@ -100,10 +113,9 @@ h2{
 }
 
 
-
 #rupeeIcon{
-    top: 2.5rem;
-    left: 1rem;
+    top: 1.8rem;
+    right: 1.2rem;
 }
 
 #TipCalc .right{
@@ -117,7 +129,6 @@ h2{
 
 .buttWrapper {
     list-style-type:none;
-   
     padding:0;
     height: 5.5rem;
     display: flex;
@@ -128,7 +139,6 @@ h2{
 
 .buttWrapper li{
     float:left;
-    margin:0 5px 0 0;
     width: 6rem;
     height: 2.2rem;
     position:relative;
@@ -191,10 +201,13 @@ h2{
     font-weight: bold;
 }
 
+.NOPdiv{
+    position: relative;
+}
 
 #userIcon{
-    bottom: 2rem;
-    left: 1rem;
+    top: 1.8rem;
+    right: 6.4rem;
 }
 
     /* RIGHT */
@@ -267,6 +280,8 @@ h2{
     height: 3rem;
 }
 
+
+
 .resetButt, .calcButt{
     width: 30%;
     height: 2.5rem;
@@ -279,6 +294,8 @@ h2{
     transition: 0.2s;
 
 }
+
+
 
 .resetButt:hover{
     cursor: pointer;
@@ -301,6 +318,22 @@ h2{
 }
 
 
+@media screen and (min-width: 1440px){
+    #TipCalc{
+        width: 50%;
+    }
+
+    .percSelect{
+        margin: 2rem 0;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .percSelect{
+        margin: 0.5rem 0 0 0;
+    }
+}
+
 @media screen and (max-width: 1100px){
     .buttWrapper li, #percText{
         width: 5rem;
@@ -313,10 +346,6 @@ h2{
         line-height: 3;
     }
 
-    #userIcon{
-        bottom: 0.9rem;
-        left: 1rem;
-    }
 
     .tip{
         width: 5.5rem;
@@ -408,22 +437,32 @@ h2{
         font-size: 0.7rem;
     }
 
-    #rupeeIcon{
-        top: 2.4rem;
+    #userIcon{
+        right: 5.5rem;
     }
 
-    #userIcon{
-        bottom: 0.8rem;
+    .buttWrapper{
+        height: 4.9rem;
     }
+
+    #percText::-webkit-input-placeholder {
+        font-size: 0.8rem;
+        line-height: 3;
+    }
+
 
         /* RIGHT */
     
+    .right{
+        justify-content: center;
+    }
+
     .results{
         height: 9rem;
     }
 
     .tipAmount, .totalAmount{
-        height: 4.5rem;
+        height: 4.2rem;
     }
 
     .tip{
@@ -458,19 +497,65 @@ h2{
 
 
 @media screen and (max-width: 620px){
+    body{
+        height: fit-content;
+    }
+    
     #TipCalc{
         width: 15rem;
-        height: fit-content;
+        height: 30rem;
         flex-direction: column;
     }
 
     .left, .right{
         width: 90%;
-        height: 17rem;
         margin: auto;
+    }
+
+    .left{
+        height: 15rem;
+    }
+
+    .right{
+        height: 12rem;
     }
 
     .textbox{
         width: 90%;
     }
+
+    .buttWrapper {
+        height: 6.5rem;
+    }
+
+    .buttWrapper li, #percText {
+        width: 5.5rem;
+        height: 1.8rem;
+        font-size: 0.8rem;
+    } 
+
+        /* RIGHT */
+
+    .results{
+        height: 8rem;
+    }
+
+    .tipAmount, .totalAmount {
+        height: 3.5rem;
+    }
+
+    .tipAmount .tipNumDiv, .totalAmount .totalNumDiv {
+        font-size: 1.2rem;
+    }
+
+    .tip, .total {
+        font-size: 0.6rem;
+    }
+
+    .perPerson {
+        font-size: 0.5rem;
+    }
+    
+       
 }
+
